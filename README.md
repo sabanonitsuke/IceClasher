@@ -1,24 +1,53 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| email               | string | null: false, unique: true |
+| encrypted_password   | string | null: false |
+| name   | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :lounges
 
-* Configuration
 
-* Database creation
+## lounges テーブル
 
-* Database initialization
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| user   | references | null: false, foreign_key: true |
+| name   | string | null: false |
+| attendance   | boolean | null: false |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- has_many : members
+- has_many : topics
+- belongs_to :user
 
-* Deployment instructions
 
-* ...
+## members テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| lounge    | references | null: false, foreign_key: true |
+| name   | string | null: false |
+| attendance    | boolean | null: false |
+
+### Association
+- belongs_to :lounge
+
+
+## topics テーブル
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| lounge   | references | null: false, foreign_key: true |
+| name   | string | null: false |
+
+
+### Association
+
+- belongs_to :lounge
