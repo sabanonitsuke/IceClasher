@@ -1,0 +1,91 @@
+<mxfile host="65bd71144e">
+    <diagram id="pV5KjOD97tGY8gdMDKQX" name="ページ1">
+        <mxGraphModel dx="1290" dy="881" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="760" height="470" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="760" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="ログイン" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="55" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="サインイン" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="710" y="55" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="IceClasher" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="47.5" width="110" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="要件" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="240.00000000000045" y="550" width="360" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="フォーム" style="swimlane;startSize=20;html=1;fontSize=10;" parent="9" vertex="1">
+                    <mxGeometry y="20" width="120" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="ボタン" style="swimlane;startSize=20;html=1;fontSize=10;" parent="9" vertex="1">
+                    <mxGeometry x="120" y="20" width="120" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="表示" style="swimlane;startSize=20;html=1;fontSize=10;" parent="9" vertex="1">
+                    <mxGeometry x="240" y="20" width="120" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="180" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="メンバー" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="140" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="230" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="280" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="メンバー名" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="410" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Button" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="410" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="190" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="240" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="290" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="トークテーマ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="140" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="180" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="190" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="230" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="240" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="280" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="290" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="Button" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="410" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="トークテーマ" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="410" width="100" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
