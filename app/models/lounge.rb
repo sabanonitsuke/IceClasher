@@ -1,0 +1,2 @@
+class Lounge < ApplicationRecord
+end
