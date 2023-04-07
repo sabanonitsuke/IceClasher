@@ -3,17 +3,18 @@
   background: #3ccace;
   text-align: center;
   border-radius: 4%;
-  bottom: 32px;
+  border: 3px solid #FF9AA2;
+  top: 100px;
   right: 32px;
   position: fixed;
-  padding: 15px;
+  padding: 12px;
+  text-decoration: none;
 }
 
 .clounge-btn-text {
   color: #fff;
   display: block;
   font-size: 18px;
-  text-decoration: none;
   margin-bottom: 5px;
 }
 
