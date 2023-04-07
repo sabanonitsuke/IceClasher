@@ -1,0 +1,19 @@
+.lounge-list {
+  list-style: none;
+  padding: 0;
+}
+
+.lounge-item {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.lounge-item a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid #A5D2DA;
+}
+
+.lounge-item a:hover {
+  color: #A5D2DA;
+}

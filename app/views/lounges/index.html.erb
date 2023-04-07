@@ -3,3 +3,26 @@
   <span class='clounge-btn-text'>ラウンジを<br>作成する</span>
   <%= image_tag 'koori_ice.png' , size: '185x50' ,class: "clounge-btn-icon" %>
 <% end %>
+
+<main>
+
+  <h1>IceClasher</h1>
+
+  <% if user_signed_in? && @lounges.empty? %>
+    <p>まずはラウンジを作成しましょう！</p>
+  <% elsif user_signed_in? %>
+    <h2>あなたが作成したラウンジ一覧</h2>
+    <ul class="lounge-list">
+      <% @lounges.each do |lounge| %>
+        <%= link_to "/" do %>
+          <div class="lounge-item">
+            <%= lounge.name %>
+          </div>
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>ログインをしたら、あなたが作成したラウンジ一覧がここに表示されます</p>
+  <% end %>
+
+</main>
