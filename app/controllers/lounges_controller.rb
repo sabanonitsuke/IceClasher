@@ -1,7 +1,7 @@
 class LoungesController < ApplicationController
   before_action :push_sign_in, only: [:new, :create]
   def index
-    
+    @lounges = current_user.louges
   end
 
   def new
