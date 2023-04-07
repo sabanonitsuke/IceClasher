@@ -1,0 +1,21 @@
+.lounge-list {}
+
+.lounge-item {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  height: 30vh;
+  min-height: 300px;
+  width: 50vw;
+  min-width: 500px;
+  background-color: #fff;
+}
+
+.lounge-item {
+  text-align: left;
+  color: #A5D2DA;
+  font-size: 30px;
+}
+
+.lounge-item_name {
+  padding: 10px 20px;
+}

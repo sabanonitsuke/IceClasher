@@ -12,15 +12,17 @@
     <p>まずはラウンジを作成しましょう！</p>
   <% elsif user_signed_in? %>
     <h2>あなたが作成したラウンジ一覧</h2>
-    <ul class="lounge-list">
+    <div class="lounge-list">
       <% @lounges.each do |lounge| %>
-        <%= link_to "/" do %>
+        <%= link_to "/" , style: "text-decoration: none" do %>
           <div class="lounge-item">
-            <%= lounge.name %>
+            <div class="lounge-item_name">
+              <%= lounge.name %>
+            </div>
           </div>
         <% end %>
       <% end %>
-    </ul>
+    </div>
   <% else %>
     <p>ログインをしたら、あなたが作成したラウンジ一覧がここに表示されます</p>
   <% end %>
