@@ -1,55 +1,35 @@
-* {
-  box-sizing: border-box;
-}
+/* styles.css */
+/* 既存のヘッダーに関するCSSを置き換える */
 
-.top-page-header {
-  width: 100vw;
-  padding: 2vh 15vw;
-  display: flex;
-  justify-content: space-between;
-  background-color: #A5D2DA;
-}
-
-.bar-contents {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-image: linear-gradient(to right, #A5D2DA 0%, #7fb6c3 50%, #A5D2DA 100%);
+  padding: 0 30px;
+  height: 60px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-.IceClasher-icon {
-  width: 15vw;
-  margin-right: 15vw;
-}
-
-.lists-right {
-  display: flex;
-  list-style: none;
-  align-items: flex-end;
-}
-
-
-.user-nickname {
+.header-logo {
+  color: #FFFFFF;
   text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
-
-.logout {
-  text-decoration: none;
-  color: #333333;
+.nav-buttons {
+  display: flex;
+  align-items: center;
 }
 
-.login {
+.nav-btn {
   text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
-}
-
-.sign-up {
-  text-decoration: none;
-  line-height: 32px;
-  color: #333333;
+  margin-left: 20px;
+  color: #FFFFFF;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
 }
