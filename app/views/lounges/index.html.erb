@@ -1,1 +1,5 @@
 <%= render "shared/header" %>
+<%= link_to( new_lounge_path, class: 'clounge-btn') do %>
+  <span class='clounge-btn-text'>ラウンジを<br>作成する</span>
+  <%= image_tag 'koori_ice.png' , size: '185x50' ,class: "clounge-btn-icon" %>
+<% end %>

@@ -19,7 +19,7 @@
 | ------ | ------ | ----------- |
 | user   | references | null: false, foreign_key: true |
 | name   | string | null: false |
-| attendance   | boolean | null: false |
+| password_digest   | string | null: false |
 
 ### Association
 

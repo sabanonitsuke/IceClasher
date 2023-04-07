@@ -1,15 +1,14 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class='top-page-header'>
-  <div class='bar-contents'>
-    <%= link_to image_tag("IceClasher-header-logo.png", class:"IceClasher-icon"), "/" %>
-  </div>
-    <ul class='lists-right'>
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, root_path, class: "user-nickname" %> </li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> </li>
-      <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %> </li> 
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <% end %>
-    </ul>
-</header>
+  <header class = "header" >
+    <%= link_to "IceClasher", root_path, class: "header-logo" %>
+    <% if user_signed_in? %>
+      <div class="nav-buttons">
+        <%= link_to current_user.nickname, root_path, class: "nav-btn" %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-btn" %>
+      </div>
+    <% else %>
+      <div class="nav-buttons">
+        <%= link_to 'ログイン', new_user_session_path, class: "nav-btn" %>
+        <%= link_to '新規登録', new_user_registration_path, class: "nav-btn" %>
+      </div>
+    <% end %>
+  </header>
