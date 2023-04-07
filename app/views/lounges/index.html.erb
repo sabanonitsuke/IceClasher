@@ -6,12 +6,10 @@
 
 <main>
 
-  <h1>IceClasher</h1>
-
   <% if user_signed_in? && @lounges.empty? %>
-    <p>まずはラウンジを作成しましょう！</p>
+    <p class="message">まずはラウンジを作成しましょう！</p>
   <% elsif user_signed_in? %>
-    <h2>あなたが作成したラウンジ一覧</h2>
+    <p class="message">あなたが作成したラウンジ一覧</p>
     <div class="lounge-list">
       <% @lounges.each do |lounge| %>
         <%= link_to "/" , style: "text-decoration: none" do %>
@@ -24,7 +22,7 @@
       <% end %>
     </div>
   <% else %>
-    <p>ログインをしたら、あなたが作成したラウンジ一覧がここに表示されます</p>
+    <p class="message">ログインをしたら、あなたが作成したラウンジ一覧がここに表示されます</p>
   <% end %>
 
 </main>
