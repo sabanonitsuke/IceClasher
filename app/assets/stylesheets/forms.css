@@ -22,6 +22,9 @@ input[type="submit"] {
   color: #FFFFFF;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 20px;
+  margin: 20px auto 0;
+  width: 50%;
 }
 
 input[type="submit"]:hover {
@@ -36,4 +39,21 @@ input[type="submit"]:hover {
   color: #fff;
   font-size: 12px;
   font-weight: bold;
+}
+
+label {
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  min-width: 170px;
+  margin-bottom: 10px;
+}
+
+
+.form-title {
+  font-size: 20px;
+  text-align: center;
 }
