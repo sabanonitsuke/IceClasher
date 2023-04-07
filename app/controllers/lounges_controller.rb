@@ -1,5 +1,5 @@
 class LoungesController < ApplicationController
-  before_action: 
+  before_action :push_sign_in, only: [:new, :create]
   def index
     
   end
@@ -20,5 +20,9 @@ class LoungesController < ApplicationController
   private
   def lounge_params
     params.require(:lounge).permit(:name, :password).merge(user_id: current_user.id)
+  end
+
+  def push_sign_in
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
