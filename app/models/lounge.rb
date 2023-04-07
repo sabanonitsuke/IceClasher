@@ -4,4 +4,6 @@ class Lounge < ApplicationRecord
   validates :password, format: { with: /\A[ぁ-んァ-ヶ一-龥々ーa-z\d]{6,}\z/i, message: "は6文字以上で入力してください" }
 
   has_secure_password
+
+  belongs_to :user
 end
