@@ -12,7 +12,7 @@
     <p class="message">あなたが作成したラウンジ一覧</p>
     <div class="lounge-list">
       <% @lounges.each do |lounge| %>
-        <%= link_to "/" , style: "text-decoration: none" do %>
+        <%= link_to lounge_path(lounge.id) , style: "text-decoration: none" do %>
           <div class="lounge-item">
             <div class="lounge-item_name">
               <%= lounge.name %>

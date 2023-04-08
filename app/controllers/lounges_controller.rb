@@ -17,6 +17,10 @@ class LoungesController < ApplicationController
     end
   end
 
+  def show
+    @lounge = Lounge.find(params[:id])
+  end
+
   private
   def lounge_params
     params.require(:lounge).permit(:name, :password).merge(user_id: current_user.id)

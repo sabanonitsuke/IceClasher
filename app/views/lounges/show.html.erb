@@ -1,0 +1,63 @@
+<%= render "shared/header" %>
+<main>
+  
+  <div class="main-content">
+
+    <%# ラウンジ概要 %>
+    <h1 class="lounge-title">
+      <span class="lounge-title_name">
+        <%= @lounge.name %>
+      </span>
+      <span class="lounge-title_text">
+        created by
+      </span>
+      <span class="lounge-title_user">
+        <%= @lounge.user.nickname %>
+      </span>
+    </h1>
+
+    <%# 機能を持ったエリア %>
+    <div class="function-wrap">
+
+      <%# メンバーエリア %>
+      <div class="side-content">
+        <div class="saved-content">
+        </div>
+        <div class="form-area">
+        </div>
+      </div>
+
+      <%# タイマーエリア %>
+      <div class="center-content">
+        <div class="randam-displays">
+        </div>
+        <div class="timer-area">
+          <div class="timer">
+          </div>
+        </div>
+
+        <%# ボタン機能はここにまとめる %>
+        <div class="timer-btns">
+          <div class="timer-btn">
+          </div>
+          <div class="timer-btn">
+          </div>
+          <div class="timer-btn">
+          </div>
+        </div>
+        
+      </div>
+
+      <%# トピックエリア %>
+      <div class="side-content">
+        <div class="saved-content">
+        </div>
+        <div class="form-area">
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+
+</main>
