@@ -4,7 +4,13 @@
 }
 
 .lounge-item {
-  margin-bottom: 1rem;
+  border: 1px solid black;
+  margin-bottom: 16px;
+  padding-right: 80px;
+  display: flex;
+}
+
+.lounge-item-main {
   font-size: 1.25rem;
   height: 30vh;
   min-height: 300px;
@@ -13,11 +19,17 @@
   background-color: #fff;
   text-align: left;
   color: #A5D2DA;
+}
+
+.lounge-item-main_name {
+  padding: 10px 20px;
   font-size: 30px;
 }
 
-.lounge-item_name {
-  padding: 10px 20px;
+.lounge-item-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
