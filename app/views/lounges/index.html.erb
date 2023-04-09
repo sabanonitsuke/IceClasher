@@ -22,7 +22,7 @@
             <ul class="lounge-item-sidebar">
               <%= link_to "ラウンジへのリンクをコピーする", "/" %>
               <%= link_to "ラウンジを編集する", edit_lounge_path(lounge.id) %>
-              <%= link_to "ラウンジを削除する", "/" %>
+              <%= link_to "ラウンジを削除する", lounge_path(lounge.id), method: :delete %>
             </ul>
           </li>
         <% end %>

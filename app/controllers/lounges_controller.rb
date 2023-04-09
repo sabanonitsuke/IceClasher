@@ -1,6 +1,6 @@
 class LoungesController < ApplicationController
-  before_action :push_sign_in, only: [:new, :create, :edit, :update]
-  before_action :get_lounge, only: [:show, :edit, :update]
+  before_action :push_sign_in, only: [:new, :create, :edit, :update, :destroy]
+  before_action :get_lounge, only: [:show, :edit, :update, :destroy]
   before_action :author_privileges, only: :show
   before_action :require_valid_password, only: :show
   before_action :check_password, only: :check
@@ -37,7 +37,11 @@ class LoungesController < ApplicationController
   end
 
   def destroy
-    
+    if @lounge.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   def password_request
