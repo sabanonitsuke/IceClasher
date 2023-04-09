@@ -27,3 +27,7 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+.remark {
+  color: var(--accent-c);
+}

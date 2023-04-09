@@ -17,14 +17,13 @@
 
     <div class="form-group">
       <div class='input-group'>
-        <label id="name" class="form-text">パスワード</label>
+        <label id="name" class="form-text">あいことば</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.password_field :password, class:"input-form", id:"password", placeholder:"6文字以上" %>
-      <%# <input type="password" name="password" placeholder="パスワード (6文字以上)" pattern="[ぁ-んァ-ヶ一-龥々ーa-z\d]{6,}" required> %>
     </div>
     <div class='btn-space'>
-      <%= f.submit "ログイン" ,class:"red-btn" %>
+      <%= f.submit "作成する" ,class:"red-btn" %>
     </div>
   <% end %>
 </div>
