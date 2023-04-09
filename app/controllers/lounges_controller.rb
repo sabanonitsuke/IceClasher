@@ -1,6 +1,7 @@
 class LoungesController < ApplicationController
   before_action :push_sign_in, only: [:new, :create, :edit, :update, :destroy]
   before_action :get_lounge, only: [:show, :edit, :update, :destroy]
+  before_action :author_confirmation, only: [:edit, :update, :destroy]
   before_action :author_privileges, only: :show
   before_action :require_valid_password, only: :show
   before_action :check_password, only: :check
@@ -67,6 +68,10 @@ class LoungesController < ApplicationController
 
   def get_lounge
     @lounge = Lounge.find(params[:id])
+  end
+
+  def author_confirmation
+    redirect_to root_path unless current_user.id == @lounge.user.id
   end
 
 
