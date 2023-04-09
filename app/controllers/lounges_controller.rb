@@ -25,6 +25,18 @@ class LoungesController < ApplicationController
   def show
   end
 
+  def edit
+    
+  end
+
+  def update
+    
+  end
+
+  def destroy
+    
+  end
+
   def password_request
     @lounge =  Lounge.find(params[:lounge_id])
   end
