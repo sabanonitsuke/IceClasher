@@ -1,6 +1,6 @@
 class LoungesController < ApplicationController
   before_action :push_sign_in, only: [:new, :create]
-  before_action :get_lounge, only: :show
+  before_action :get_lounge, only: [:show, :edit]
   before_action :author_privileges, only: :show
   before_action :require_valid_password, only: :show
   before_action :check_password, only: :check
@@ -26,7 +26,6 @@ class LoungesController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
@@ -47,7 +46,9 @@ class LoungesController < ApplicationController
     redirect_to lounge_path(params[:lounge_id])
   end
 
+
   private
+
   def lounge_params
     params.require(:lounge).permit(:name, :password).merge(user_id: current_user.id)
   end
