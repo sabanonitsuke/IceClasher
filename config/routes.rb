@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'lounges#index'
-  resources :lounges, only: [:index, :new, :create, :show] do
+  resources :lounges do
     get 'password/request', to: 'lounges#password_request'
     post 'password/check', to: 'lounges#check'
   end

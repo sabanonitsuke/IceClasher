@@ -10,17 +10,24 @@
     <p class="message">まずはラウンジを作成しましょう！</p>
   <% elsif user_signed_in? %>
     <p class="message">あなたが作成したラウンジ一覧</p>
-    <div class="lounge-list">
+    <ul class="lounge-list">
       <% @lounges.each do |lounge| %>
         <%= link_to lounge_path(lounge.id) , style: "text-decoration: none" do %>
-          <div class="lounge-item">
-            <div class="lounge-item_name">
-              <%= lounge.name %>
+          <li class="lounge-item">
+            <div class="lounge-item-main">
+              <div class="lounge-item-main_name">
+                <%= lounge.name %>
+              </div>
             </div>
-          </div>
+            <ul class="lounge-item-sidebar">
+              <%= link_to "ラウンジへのリンクをコピーする", "/" %>
+              <%= link_to "ラウンジを編集する", edit_lounge_path(lounge.id) %>
+              <%= link_to "ラウンジを削除する", lounge_path(lounge.id), method: :delete %>
+            </ul>
+          </li>
         <% end %>
       <% end %>
-    </div>
+    </ul>
   <% else %>
     <p class="message">ログインをしたら、あなたが作成したラウンジ一覧がここに表示されます</p>
   <% end %>

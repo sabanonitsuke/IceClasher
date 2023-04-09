@@ -1,6 +1,7 @@
 class LoungesController < ApplicationController
-  before_action :push_sign_in, only: [:new, :create]
-  before_action :get_lounge, only: :show
+  before_action :push_sign_in, only: [:new, :create, :edit, :update, :destroy]
+  before_action :get_lounge, only: [:show, :edit, :update, :destroy]
+  before_action :author_confirmation, only: [:edit, :update, :destroy]
   before_action :author_privileges, only: :show
   before_action :require_valid_password, only: :show
   before_action :check_password, only: :check
@@ -25,6 +26,25 @@ class LoungesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @lounge.update(lounge_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @lounge.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
   def password_request
     @lounge =  Lounge.find(params[:lounge_id])
   end
@@ -35,7 +55,9 @@ class LoungesController < ApplicationController
     redirect_to lounge_path(params[:lounge_id])
   end
 
+
   private
+
   def lounge_params
     params.require(:lounge).permit(:name, :password).merge(user_id: current_user.id)
   end
@@ -46,6 +68,10 @@ class LoungesController < ApplicationController
 
   def get_lounge
     @lounge = Lounge.find(params[:id])
+  end
+
+  def author_confirmation
+    redirect_to root_path unless current_user.id == @lounge.user.id
   end
 
 
