@@ -59,7 +59,7 @@ class LoungesController < ApplicationController
   private
 
   def lounge_params
-    params.require(:lounge).permit(:name, :password).merge(user_id: current_user.id)
+    params.require(:lounge).permit(:name, :time_limit, :password).merge(user_id: current_user.id)
   end
 
   def push_sign_in
