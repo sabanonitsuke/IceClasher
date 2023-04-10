@@ -2,9 +2,9 @@ class LoungesController < ApplicationController
   before_action :push_sign_in, only: [:new, :create, :edit, :update, :destroy]
   before_action :get_lounge, only: [:show, :edit, :update, :destroy]
   before_action :author_confirmation, only: [:edit, :update, :destroy]
-  before_action :author_privileges, only: :show
   before_action :require_valid_password, only: :show
   before_action :check_password, only: :check
+  before_action :get_lounges_item, only: :show
 
   def index
     @lounges = current_user.lounges if user_signed_in?
@@ -70,17 +70,17 @@ class LoungesController < ApplicationController
     @lounge = Lounge.find(params[:id])
   end
 
+  def get_lounges_item
+    @member = Member.new
+    @members = @lounge.members
+  end
+
   def author_confirmation
     redirect_to root_path unless current_user.id == @lounge.user.id
   end
 
 
   # あいことば関連のアクション
-
-  def author_privileges
-    render :show if user_signed_in? && current_user.id == @lounge.user.id
-  end
-
   def check_password
     password = params[:password]
     lounge = Lounge.find(params[:lounge_id])
@@ -91,6 +91,7 @@ class LoungesController < ApplicationController
   end
 
   def require_valid_password
+    return if user_signed_in? && current_user.id == @lounge.user.id
     unless session[:password_valid_for]&.[](params[:id])
       redirect_to lounge_password_request_path(params[:id])
     end
