@@ -12,12 +12,20 @@
         <label id="name" class="form-text">ラウンジ名</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :name, class:"input-form", id:"name", placeholder:"例) ICE太郎", maxlength:"40" %>
+      <%= f.text_field :name, class:"input-form", id:"name", placeholder:"くつろぎ", maxlength:"40" %>
     </div>
 
     <div class="form-group">
       <div class='input-group'>
-        <label id="name" class="form-text">あいことば</label>
+        <label id="time_limit" class="form-text">1人あたりの発言時間(秒)</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :time_limit, class:"input-form", id:"time_limit", placeholder:"整数半角数字のみ", value: 15 %>
+    </div>
+
+    <div class="form-group">
+      <div class='input-group'>
+        <label id="name" class="form-text">入室時に必要な あいことば</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.password_field :password, class:"input-form", id:"password", placeholder:"6文字以上" %>
