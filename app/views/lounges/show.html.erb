@@ -22,8 +22,23 @@
       <%# メンバーエリア %>
       <div class="side-content">
         <div class="saved-content">
+          <h2 class="content-list-title">メンバー一覧</h2>
+          <ul class="content-list scroll-item" id="member-list">
+            <% @members.each do |member| %>
+              <li class="content-list-item">
+                <%= member.name %>
+                <i class="member-del-btn fa-solid fa-xmark", data-member_id = <%= member.id %> data-lounge_id = <%= @lounge.id %> ></i>
+              </li>
+            <% end %>
+          </ul>
         </div>
         <div class="form-area">
+          <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
+            <div class="d-flex">
+              <%= f.text_field :name, class:"side-content-text", id: "member-text", placeholder:"メンバーを入力" %>
+              <%= f.submit "追加" , class:"side-content-btn", id:"member-submit" %>
+            </div>
+          <% end %>
         </div>
       </div>
 
@@ -51,8 +66,23 @@
       <%# トピックエリア %>
       <div class="side-content">
         <div class="saved-content">
+          <h2 class="content-list-title">トピック一覧</h2>
+          <ul class="content-list scroll-item" id="topic-list">
+            <% @topics.each do |topic| %>
+              <li class="content-list-item">
+                <%= topic.name %>
+                <i class="topic-del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> data-lounge_id = <%= @lounge.id %> ></i>
+              </li>
+            <% end %>
+          </ul>
         </div>
         <div class="form-area">
+          <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
+            <div class="d-flex">
+              <%= f.text_field :name, class:"side-content-text", id: "topic-text", placeholder:"トピックを入力" %>
+              <%= f.submit "追加" , class:"side-content-btn", id:"topic-submit" %>
+            </div>
+          <% end %>
         </div>
       </div>
 

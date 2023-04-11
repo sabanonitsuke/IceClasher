@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_06_124247) do
+ActiveRecord::Schema.define(version: 2023_04_11_122237) do
 
   create_table "lounges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -20,6 +20,23 @@ ActiveRecord::Schema.define(version: 2023_04_06_124247) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_lounges_on_user_id"
+  end
+
+  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "lounge_id", null: false
+    t.string "name", null: false
+    t.boolean "attendance", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lounge_id"], name: "index_members_on_lounge_id"
+  end
+
+  create_table "topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "lounge_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lounge_id"], name: "index_topics_on_lounge_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,4 +53,6 @@ ActiveRecord::Schema.define(version: 2023_04_06_124247) do
   end
 
   add_foreign_key "lounges", "users"
+  add_foreign_key "members", "lounges"
+  add_foreign_key "topics", "lounges"
 end

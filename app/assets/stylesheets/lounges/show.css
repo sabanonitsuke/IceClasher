@@ -1,3 +1,12 @@
+.main-content {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+  height: 95%;
+  width: 95%;
+}
+
+/* ラウンジ概要 */
 .lounge-title {
   font-size: large;
   margin-bottom: 10px;
@@ -8,21 +17,12 @@
   color: var(--accent-c);
 }
 
-
 .lounge-title_text {
   font-size: 10px;
 }
 
 .lounge-title_user {
   font-size: 20px;
-}
-
-.main-content {
-  border: 1px solid black;
-  margin: 10px;
-  padding: 10px;
-  height: 95%;
-  width: 95%;
 }
 
 .function-wrap {
@@ -34,30 +34,11 @@
   justify-content: center;
 }
 
+/* センター */
 .center-content {
   border: 1px solid blue;
   width: 40%;
   height: 100%;
-}
-
-.side-content {
-  border: 1px solid green;
-  width: 30%;
-  height: 100%;
-}
-
-.saved-content {
-  border: 1px solid orange;
-  width: 80%;
-  height: 70%;
-  margin: 20px auto;
-}
-
-.form-area {
-  border: 1px solid green;
-  width: 80%;
-  height: 20%;
-  margin: auto;
 }
 
 .randam-displays {
@@ -97,4 +78,84 @@
   height: 50px;
   border-radius: 50%;
   margin: 30px;
+}
+
+/* サイド */
+.side-content {
+  border: 1px solid green;
+  width: 30%;
+  height: 100%;
+}
+
+.saved-content {
+  border: 1px solid orange;
+  width: 80%;
+  height: 70%;
+  margin: 20px auto;
+}
+
+.content-list-title {
+  text-align: center;
+  font-size: 50px;
+  height: 15%;
+}
+
+.content-list {
+  border: 1px solid black;
+  margin: auto;
+  height: 85%;
+  width: 70%;
+  font-size: 25px;
+  text-align: center;
+}
+
+.content-list li {
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-area {
+  border: 1px solid green;
+  width: 80%;
+  height: 20%;
+  margin: auto;
+}
+
+.side-content-form {
+  border: 1px solid black;
+  width: 100%;
+}
+
+.d-flex {
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+}
+
+.side-content-text {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #A5D2DA;
+  border-radius: 5px;
+}
+
+.side-content-btn {
+  width: 15%;
+  min-width: 60px;
+  padding: 10px;
+  background-color: #FF9AA2;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+.side-content-btn:hover {
+  background-color: #FF758F;
 }

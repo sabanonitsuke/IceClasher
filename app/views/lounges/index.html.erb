@@ -10,7 +10,7 @@
     <p class="message">まずはラウンジを作成しましょう！</p>
   <% elsif user_signed_in? %>
     <p class="message">あなたが作成したラウンジ一覧</p>
-    <ul class="lounge-list">
+    <ul class="lounge-list scroll-item">
       <% @lounges.each do |lounge| %>
         <%= link_to lounge_path(lounge.id) , style: "text-decoration: none" do %>
           <li class="lounge-item">
