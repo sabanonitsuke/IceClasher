@@ -7,5 +7,6 @@ class Lounge < ApplicationRecord
   has_secure_password
 
   has_many :members
+  has_many :topics
   belongs_to :user
 end
