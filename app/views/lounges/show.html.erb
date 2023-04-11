@@ -66,14 +66,18 @@
       <%# トピックエリア %>
       <div class="side-content">
         <div class="saved-content">
-          <ul class="content-list">トピック一覧
-            <li>トピック</li>
-            <li>トピック</li>
-            <li>トピック</li>
+          <h2 class="content-list-title">メンバー一覧</h2>
+          <ul class="content-list scroll-item" id="topic-list">
+            <% @topics.each do |topic| %>
+              <li class="content-list-item">
+                <%= topic.name %>
+                <i class="topic-del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> data-lounge_id = <%= @lounge.id %> ></i>
+              </li>
+            <% end %>
           </ul>
         </div>
         <div class="form-area">
-          <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", local: true do |f| %>
+          <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
             <div class="d-flex">
               <%= f.text_field :name, class:"side-content-text", id: "topic-text", placeholder:"トピックを入力" %>
               <%= f.submit "追加" , class:"side-content-btn", id:"topic-submit" %>
