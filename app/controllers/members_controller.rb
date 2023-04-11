@@ -1,11 +1,6 @@
 class MembersController < ApplicationController
   def create
-    member = Member.create(members_params)
+    member = Member.create(name: params[:name], attendance: true, lounge_id: params[:lounge_id])
     render json:{ member: member }
-  end
-
-  private
-  def members_params
-    params.require(:member).permit(:name).merge(attendance: :ture, louge_id: params[:lounge_id])
   end
 end
