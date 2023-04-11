@@ -47,7 +47,9 @@ function member() {
           const loungeId = memberDelBtn.getAttribute("data-lounge_id");
           const memberId = memberDelBtn.getAttribute("data-member_id");
           console.log(memberId)
-          XHR.open("POST", `/lounges/${loungeId}/members/${item.id}`, true);
+          const XHR = new XMLHttpRequest();
+          XHR.open("DELETE", `/lounges/${loungeId}/members/${item.id}`, true);
+          XHR.send();
         });
       }
     });
