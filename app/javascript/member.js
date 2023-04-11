@@ -1,7 +1,7 @@
 function member() {
   console.log("memberが読み込まれています");
   const memberSubmit = document.getElementById('member-submit');
-  const memberDelBtns = document.querySelectorAll(".member-del-btn");
+  updateMemberItems();
 
   memberSubmit.addEventListener('click', function (e) {
     e.preventDefault();
@@ -23,26 +23,34 @@ function member() {
       const html = `
       <li class="content-list-item">
         ${item.name}
-        <i class="member-del-btn fa-solid fa-xmark"></i>
+        <i class="member-del-btn fa-solid fa-xmark", data-member_id= "${item.id}" ></i>
       </li>
       `;
       list.insertAdjacentHTML("beforeend", html);
       formText.value = ""
+      updateMemberItems();
     };
   });
 
-  memberDelBtns.forEach(function (memberDelBtn) {
-    memberDelBtn.addEventListener('mouseover', function () {
-      this.setAttribute("style", "color: gold;");
+  function updateMemberItems() {
+    const memberDelBtns = document.querySelectorAll(".member-del-btn");
+    memberDelBtns.forEach(function (memberDelBtn) {
+      if (memberDelBtn.dataset.listenerAdded !== 'true') {
+        memberDelBtn.dataset.listenerAdded = 'true'
+        memberDelBtn.addEventListener('mouseover', function () {
+          this.setAttribute("style", "color: gold;");
+        });
+        memberDelBtn.addEventListener('mouseout', function () {
+          this.removeAttribute("style", "color: gray;");
+        });
+        memberDelBtn.addEventListener('click', function () {
+          const articleId = memberDelBtn.getAttribute("data-member_id");
+          console.log(articleId)
+        });
+      }
     });
-    memberDelBtn.addEventListener('mouseout', function () {
-      this.removeAttribute("style", "color: gray;");
-    });
-    memberDelBtn.addEventListener('click', function () {
-      const articleId = memberDelBtn.getAttribute("data-member_id");
-      console.log(articleId)
-    });
-  });
+  }
+
 };
 
 
