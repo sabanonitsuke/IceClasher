@@ -44,11 +44,13 @@ function member() {
           this.removeAttribute("style", "color: gray;");
         });
         memberDelBtn.addEventListener('click', function () {
+
           const loungeId = memberDelBtn.getAttribute("data-lounge_id");
           const memberId = memberDelBtn.getAttribute("data-member_id");
-          console.log(memberId)
           const XHR = new XMLHttpRequest();
-          XHR.open("DELETE", `/lounges/${loungeId}/members/${item.id}`, true);
+          XHR.open("DELETE", `/lounges/${loungeId}/members/${memberId}`, true);
+          const token = document.querySelector('meta[name="csrf-token"]').content;
+          XHR.setRequestHeader('X-CSRF-Token', token);
           XHR.send();
         });
       }

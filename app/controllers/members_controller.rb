@@ -5,6 +5,6 @@ class MembersController < ApplicationController
   end
 
   def destroy
-    
+    Member.find(params[:id]).destroy
   end
 end
