@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     get 'password/request', to: 'lounges#password_request'
     post 'password/check', to: 'lounges#check'
     resources :members, only: [:create, :destroy]
+    resources :topics, only: [:create, :destroy]
   end
 end
