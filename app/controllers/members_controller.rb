@@ -3,4 +3,8 @@ class MembersController < ApplicationController
     member = Member.create(name: params[:name], attendance: true, lounge_id: params[:lounge_id])
     render json:{ member: member }
   end
+
+  def destroy
+    
+  end
 end
