@@ -4,7 +4,6 @@ class LoungesController < ApplicationController
   before_action :author_confirmation, only: [:edit, :update, :destroy]
   before_action :require_valid_password, only: :show
   before_action :check_password, only: :check
-  before_action :get_lounges_item, only: :show
 
   def index
     @lounges = current_user.lounges if user_signed_in?
@@ -24,6 +23,10 @@ class LoungesController < ApplicationController
   end
 
   def show
+    @member = Member.new
+    @members = @lounge.members
+    @topic = Topic.new
+    @topics = @lounge.topics
   end
 
   def edit
@@ -68,11 +71,6 @@ class LoungesController < ApplicationController
 
   def get_lounge
     @lounge = Lounge.find(params[:id])
-  end
-
-  def get_lounges_item
-    @member = Member.new
-    @members = @lounge.members
   end
 
   def author_confirmation
