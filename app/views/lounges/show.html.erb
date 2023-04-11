@@ -22,8 +22,24 @@
       <%# メンバーエリア %>
       <div class="side-content">
         <div class="saved-content">
+          <ul class="content-list" id="member-list">メンバー一覧
+            <li>メンバー</li>
+            <li>メンバー</li>
+            <li>メンバー</li>
+            <% @members.each do |member| %>
+              <li class="content-list-item">
+                <%= member.name %>
+              </li>
+            <% end %>
+          </ul>
         </div>
         <div class="form-area">
+          <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", local: true do |f| %>
+            <div class="d-flex">
+              <%= f.text_field :name, class:"side-content-text", id: "member-text", placeholder:"メンバーを入力" %>
+              <%= f.submit "決定" , class:"side-content-btn", id:"member-submit" %>
+            </div>
+          <% end %>
         </div>
       </div>
 
@@ -51,6 +67,11 @@
       <%# トピックエリア %>
       <div class="side-content">
         <div class="saved-content">
+          <ul class="content-list">トピック一覧
+            <li>トピック</li>
+            <li>トピック</li>
+            <li>トピック</li>
+          </ul>
         </div>
         <div class="form-area">
         </div>
