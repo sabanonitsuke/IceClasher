@@ -44,7 +44,6 @@ function member() {
           this.removeAttribute("style", "color: gray;");
         });
         memberDelBtn.addEventListener('click', function () {
-
           const loungeId = memberDelBtn.getAttribute("data-lounge_id");
           const memberId = memberDelBtn.getAttribute("data-member_id");
           const XHR = new XMLHttpRequest();
@@ -52,6 +51,13 @@ function member() {
           const token = document.querySelector('meta[name="csrf-token"]').content;
           XHR.setRequestHeader('X-CSRF-Token', token);
           XHR.send();
+          XHR.onload = () => {
+            if (XHR.status === 204) {
+              memberDelBtn.parentElement.remove();
+            } else {
+              alert(`Error ${XHR.status}: ${XHR.statusText}`);
+            };
+          };
         });
       }
     });

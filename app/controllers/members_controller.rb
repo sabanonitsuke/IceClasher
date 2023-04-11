@@ -6,5 +6,6 @@ class MembersController < ApplicationController
 
   def destroy
     Member.find(params[:id]).destroy
+    head :no_content
   end
 end
