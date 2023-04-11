@@ -1,6 +1,7 @@
 function member() {
   console.log("memberが読み込まれています");
   const memberSubmit = document.getElementById('member-submit');
+  const memberDelBtns = document.querySelectorAll(".member-del-btn");
 
   memberSubmit.addEventListener('click', function (e) {
     e.preventDefault();
@@ -20,13 +21,28 @@ function member() {
       const list = document.getElementById("member-list");
       const item = XHR.response.member;
       const html = `
-      <li>${item.name}</li>
+      <li class="content-list-item">
+        ${item.name}
+        <i class="member-del-btn fa-solid fa-xmark"></i>
+      </li>
       `;
       list.insertAdjacentHTML("beforeend", html);
       formText.value = ""
     };
   });
 
+  memberDelBtns.forEach(function (memberDelBtn) {
+    memberDelBtn.addEventListener('mouseover', function () {
+      this.setAttribute("style", "color: gold;");
+    });
+    memberDelBtn.addEventListener('mouseout', function () {
+      this.removeAttribute("style", "color: gray;");
+    });
+    memberDelBtn.addEventListener('click', function () {
+      const articleId = memberDelBtn.getAttribute("data-member_id");
+      console.log(articleId)
+    });
+  });
 };
 
 

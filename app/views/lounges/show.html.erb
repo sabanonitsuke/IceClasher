@@ -27,7 +27,7 @@
             <% @members.each do |member| %>
               <li class="content-list-item">
                 <%= member.name %>
-                <i class="fa-solid fa-xmark"></i>
+                <i class="member-del-btn fa-solid fa-xmark", data-member_id= <%= member.id %> ></i>
               </li>
             <% end %>
           </ul>
