@@ -22,10 +22,12 @@
       <%# メンバーエリア %>
       <div class="side-content">
         <div class="saved-content">
-          <ul class="content-list" id="member-list">メンバー一覧
+          <h2 class="content-list-title">メンバー一覧</h2>
+          <ul class="content-list scroll-item" id="member-list">
             <% @members.each do |member| %>
               <li class="content-list-item">
                 <%= member.name %>
+                <i class="fa-solid fa-xmark"></i>
               </li>
             <% end %>
           </ul>
