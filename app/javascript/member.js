@@ -7,6 +7,10 @@ function member() {
     e.preventDefault();
     const memberForm = document.getElementById('member-form');
     const formData = new FormData(memberForm);
+    if (formData.get('name') === "") {
+      alert(`値を入力してください`);
+      return null;
+    };
     const XHR = new XMLHttpRequest();
     const loungeId = memberForm.dataset.loungeId;
     XHR.open("POST", `/lounges/${loungeId}/members`, true);
