@@ -1,11 +1,14 @@
 function timer() {
 
   const nextBtn = document.getElementById('next-btn');
+  const resetBtn = document.getElementById('reset-btn');
   const memberDisplay = document.getElementById('member-display');
+  const topicDisplay = document.getElementById('topic-display');
   const people = document.getElementById('people');
   const memberSubmit = document.getElementById('member-submit');
   updateMembers();
   updateMemberItems();
+  updatePeople();
 
   function updateMembers() {
     members = Array.from(document.querySelectorAll('#member-list li')).map(li => li.textContent);
@@ -37,6 +40,22 @@ function timer() {
       }
     });
   }
+
+  function updatePeople() {
+    people.innerHTML = members.length
+  };
+
+  function reset() {
+    memberDisplay.textContent = "メンバーをここに表示"
+    topicDisplay.textContent = "トピックをここに表示"
+    updateMembers();
+    updateMemberItems();
+    updatePeople();
+  };
+
+  resetBtn.addEventListener('click', function () {
+    reset();
+  });
 
   memberSubmit.addEventListener('click', function (e) {
     e.preventDefault();
@@ -74,11 +93,12 @@ function timer() {
 
   nextBtn.addEventListener('click', function () {
     if (members.length === 0) {
-      memberDisplay.textContent = '終了';
+      memberDisplay.textContent = '終了＼(^o^)／';
+      topicDisplay.textContent = '終了＼(^o^)／';
       people.innerHTML = "0"
       return;
     }
-    people.innerHTML = members.length
+    updatePeople();
     const randomIndex = Math.floor(Math.random() * members.length);
     const selectedName = members[randomIndex];
     memberDisplay.textContent = selectedName;
