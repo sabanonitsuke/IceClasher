@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <main>
   
-  <div class="main-content">
+  <div class="main-content" id = "lounge-main" data-lounge_id = <%= @lounge.id %> >
 
     <%# ラウンジ概要 %>
     <h1 class="lounge-title">
@@ -27,12 +27,12 @@
             <% @members.each do |member| %>
               <li class="content-list-item">
                 <%= member.name %>
-                <i class="member-del-btn del-btn fa-solid fa-xmark", data-member_id = <%= member.id %> data-lounge_id = <%= @lounge.id %> ></i>
+                <i class="member-del-btn del-btn fa-solid fa-xmark", data-member_id = <%= member.id %> ></i>
               </li>
             <% end %>
           </ul>
         </div>
-        <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
+        <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", local: true do |f| %>
           <div class="d-flex">
             <%= f.text_field :name, class:"side-content-text", id: "member-text", placeholder:"メンバーを入力" %>
             <%= f.submit "追加" , class:"side-content-btn", id:"member-submit" %>
@@ -104,13 +104,13 @@
             <% @topics.each do |topic| %>
               <li class="content-list-item">
                 <%= topic.name %>
-                <i class="topic-del-btn del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> data-lounge_id = <%= @lounge.id %> ></i>
+                <i class="topic-del-btn del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> ></i>
               </li>
             <% end %>
           </ul>
         </div>
 
-        <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
+        <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", local: true do |f| %>
           <div class="d-flex">
             <%= f.text_field :name, class:"side-content-text", id: "topic-text", placeholder:"トピックを入力" %>
             <%= f.submit "追加" , class:"side-content-btn", id:"topic-submit" %>

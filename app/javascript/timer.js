@@ -7,8 +7,10 @@ function timer() {
   const people = document.getElementById('people');
   const memberSubmit = document.getElementById('member-submit');
   const topicSubmit = document.getElementById('topic-submit');
+  const loungeId = document.getElementById('lounge-main').dataset.lounge_id;
 
   updateMembers();
+  updateTopics();
   updateMemberItems();
   updateTopicItems();
   updatePeople();
@@ -18,13 +20,16 @@ function timer() {
     usedMembers = [];
   }
 
+  function updateTopics() {
+    topics = Array.from(document.querySelectorAll('#topic-list li')).map(li => li.textContent);
+  }
+
   function updateMemberItems() {
     const memberDelBtns = document.querySelectorAll(".member-del-btn");
     memberDelBtns.forEach(function (memberDelBtn) {
       if (memberDelBtn.dataset.listenerAdded !== 'true') {
         memberDelBtn.dataset.listenerAdded = 'true'
         memberDelBtn.addEventListener('click', function () {
-          const loungeId = memberDelBtn.getAttribute("data-lounge_id");
           const memberId = memberDelBtn.getAttribute("data-member_id");
           const XHR = new XMLHttpRequest();
           XHR.open("DELETE", `/lounges/${loungeId}/members/${memberId}`, true);
@@ -50,7 +55,6 @@ function timer() {
       if (topicDelBtn.dataset.listenerAdded !== 'true') {
         topicDelBtn.dataset.listenerAdded = 'true'
         topicDelBtn.addEventListener('click', function () {
-          const loungeId = topicDelBtn.getAttribute("data-lounge_id");
           const topicId = topicDelBtn.getAttribute("data-topic_id");
           const XHR = new XMLHttpRequest();
           XHR.open("DELETE", `/lounges/${loungeId}/topics/${topicId}`, true);
@@ -60,6 +64,7 @@ function timer() {
           XHR.onload = () => {
             if (XHR.status === 204) {
               topicDelBtn.parentElement.remove();
+              updateTopics();
             } else {
               alert(`Error ${XHR.status}: ${XHR.statusText}`);
             };
@@ -90,7 +95,6 @@ function timer() {
       return null;
     };
     const XHR = new XMLHttpRequest();
-    const loungeId = memberForm.dataset.loungeId;
     XHR.open("POST", `/lounges/${loungeId}/members`, true);
     XHR.responseType = "json";
     XHR.send(formData);
@@ -112,6 +116,7 @@ function timer() {
       formText.value = ""
       updateMemberItems();
       updateMembers();
+      updatePeople();
     };
   });
 
@@ -124,7 +129,6 @@ function timer() {
       return null;
     };
     const XHR = new XMLHttpRequest();
-    const loungeId = topicForm.dataset.loungeId;
     XHR.open("POST", `/lounges/${loungeId}/topics`, true);
     XHR.responseType = "json";
     XHR.send(formData);
@@ -145,6 +149,7 @@ function timer() {
       list.insertAdjacentHTML("beforeend", html);
       formText.value = ""
       updateTopicItems();
+      updateTopics();
     };
   });
 
@@ -166,6 +171,10 @@ function timer() {
 
     usedMembers.push(selectedName);
     members.splice(randomIndex, 1);
+
+    const randomIdex2 = Math.floor(Math.random() * topics.length);
+    const selectedName2 = topics[randomIdex2];
+    topicDisplay.textContent = selectedName2;
   });
 
 };
