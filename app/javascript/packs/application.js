@@ -6,7 +6,6 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
-require("../member")
 require("../topic")
 require("../timer")
 
