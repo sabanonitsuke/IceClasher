@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <main>
   
-  <div class="main-content">
+  <div class="main-content" id = "lounge-main" data-lounge_id = <%= @lounge.id %> >
 
     <%# ラウンジ概要 %>
     <h1 class="lounge-title">
@@ -27,37 +27,70 @@
             <% @members.each do |member| %>
               <li class="content-list-item">
                 <%= member.name %>
-                <i class="member-del-btn fa-solid fa-xmark", data-member_id = <%= member.id %> data-lounge_id = <%= @lounge.id %> ></i>
+                <i class="member-del-btn del-btn fa-solid fa-xmark", data-member_id = <%= member.id %> ></i>
               </li>
             <% end %>
           </ul>
         </div>
-        <div class="form-area">
-          <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
-            <div class="d-flex">
-              <%= f.text_field :name, class:"side-content-text", id: "member-text", placeholder:"メンバーを入力" %>
-              <%= f.submit "追加" , class:"side-content-btn", id:"member-submit" %>
-            </div>
-          <% end %>
-        </div>
+        <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", local: true do |f| %>
+          <div class="d-flex">
+            <%= f.text_field :name, class:"side-content-text", id: "member-text", placeholder:"メンバーを入力" %>
+            <%= f.submit "追加" , class:"side-content-btn", id:"member-submit" %>
+          </div>
+        <% end %>
       </div>
 
       <%# タイマーエリア %>
       <div class="center-content">
-        <div class="randam-displays">
+        <%# ディスプレイ %>
+        <div class="random-displays">
+          <div class="displays">
+            <div class="display-title">
+              今話す人
+            </div>
+            <div id="member-display" class="display-content">
+              メンバーをここに表示
+            </div>
+          </div>
+          <div class="displays">
+            <div class="display-title">
+              話題
+            </div>
+            <div id="topic-display" class="display-content">
+              トピックをここに表示
+            </div>
+          </div>
         </div>
-        <div class="timer-area">
+        <%# タイマー %>
+        <div class="timer-wrap">
           <div class="timer">
+            <div class="countdown">
+              残り人数
+              <div class="count-wrap">
+                <div class="remaining" id="people" >0</div>
+                人
+              </div>
+            </div>
+            <div class="countdown">
+              残り時間
+              <div class="count-wrap">
+                <div class="remaining" id="minutes"> <%= @lounge.time_limit %> </div>
+                秒
+              </div>
+            </div>
           </div>
         </div>
 
         <%# ボタン機能はここにまとめる %>
         <div class="timer-btns">
           <div class="timer-btn">
+            <i id="reset-btn" class="fa-solid fa-rotate-left"></i>
           </div>
           <div class="timer-btn">
+            <i id="play-btn" class="fa-solid fa-play"></i>
           </div>
           <div class="timer-btn">
+            <i id="next-btn" class="fa-solid fa-forward-step"></i>
           </div>
         </div>
         
@@ -71,19 +104,18 @@
             <% @topics.each do |topic| %>
               <li class="content-list-item">
                 <%= topic.name %>
-                <i class="topic-del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> data-lounge_id = <%= @lounge.id %> ></i>
+                <i class="topic-del-btn del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> ></i>
               </li>
             <% end %>
           </ul>
         </div>
-        <div class="form-area">
-          <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
-            <div class="d-flex">
-              <%= f.text_field :name, class:"side-content-text", id: "topic-text", placeholder:"トピックを入力" %>
-              <%= f.submit "追加" , class:"side-content-btn", id:"topic-submit" %>
-            </div>
-          <% end %>
-        </div>
+
+        <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", local: true do |f| %>
+          <div class="d-flex">
+            <%= f.text_field :name, class:"side-content-text", id: "topic-text", placeholder:"トピックを入力" %>
+            <%= f.submit "追加" , class:"side-content-btn", id:"topic-submit" %>
+          </div>
+        <% end %>
       </div>
 
     </div>
