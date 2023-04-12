@@ -32,14 +32,12 @@
             <% end %>
           </ul>
         </div>
-        <div class="form-area">
-          <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
-            <div class="d-flex">
-              <%= f.text_field :name, class:"side-content-text", id: "member-text", placeholder:"メンバーを入力" %>
-              <%= f.submit "追加" , class:"side-content-btn", id:"member-submit" %>
-            </div>
-          <% end %>
-        </div>
+        <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
+          <div class="d-flex">
+            <%= f.text_field :name, class:"side-content-text", id: "member-text", placeholder:"メンバーを入力" %>
+            <%= f.submit "追加" , class:"side-content-btn", id:"member-submit" %>
+          </div>
+        <% end %>
       </div>
 
       <%# タイマーエリア %>
@@ -97,14 +95,13 @@
             <% end %>
           </ul>
         </div>
-        <div class="form-area">
-          <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
-            <div class="d-flex">
-              <%= f.text_field :name, class:"side-content-text", id: "topic-text", placeholder:"トピックを入力" %>
-              <%= f.submit "追加" , class:"side-content-btn", id:"topic-submit" %>
-            </div>
-          <% end %>
-        </div>
+
+        <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", data: {lounge_id: @lounge.id}, local: true do |f| %>
+          <div class="d-flex">
+            <%= f.text_field :name, class:"side-content-text", id: "topic-text", placeholder:"トピックを入力" %>
+            <%= f.submit "追加" , class:"side-content-btn", id:"topic-submit" %>
+          </div>
+        <% end %>
       </div>
 
     </div>

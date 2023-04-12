@@ -137,28 +137,17 @@
 .content-list li {
   background-color: white;
   margin: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.form-area {
-  border: 1px solid green;
-  width: 80%;
-  height: 20%;
-  margin: auto;
-}
-
-.side-content-form {
-  border: 1px solid black;
-  width: 100%;
-}
-
 .d-flex {
-  border: 1px solid green;
+  width: 80%;
   display: flex;
   justify-content: center;
+  margin: auto;
 }
 
 .side-content-text {
