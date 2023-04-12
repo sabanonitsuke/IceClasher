@@ -76,10 +76,13 @@
 
 .timer-btn {
   border: 1px solid black;
+  font-size: 25px;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
   margin: 30px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 /* サイド */
@@ -117,6 +120,7 @@
   padding: 5px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .form-area {
