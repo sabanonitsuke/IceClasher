@@ -27,7 +27,7 @@ function topic() {
       const html = `
       <li class="content-list-item">
         ${item.name}
-        <i class="topic-del-btn fa-solid fa-xmark", data-topic_id= "${item.id}", data-lounge_id = "${loungeId}" ></i>
+        <i class="topic-del-btn del-btn fa-solid fa-xmark", data-topic_id= "${item.id}", data-lounge_id = "${loungeId}" ></i>
       </li>
       `;
       list.insertAdjacentHTML("beforeend", html);
@@ -41,12 +41,6 @@ function topic() {
     topicDelBtns.forEach(function (topicDelBtn) {
       if (topicDelBtn.dataset.listenerAdded !== 'true') {
         topicDelBtn.dataset.listenerAdded = 'true'
-        topicDelBtn.addEventListener('mouseover', function () {
-          this.setAttribute("style", "color: gold;");
-        });
-        topicDelBtn.addEventListener('mouseout', function () {
-          this.removeAttribute("style", "color: gray;");
-        });
         topicDelBtn.addEventListener('click', function () {
           const loungeId = topicDelBtn.getAttribute("data-lounge_id");
           const topicId = topicDelBtn.getAttribute("data-topic_id");

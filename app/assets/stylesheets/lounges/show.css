@@ -169,6 +169,10 @@
   align-items: center;
 }
 
+.del-btn:hover {
+  color: gold;
+}
+
 .d-flex {
   width: 80%;
   display: flex;

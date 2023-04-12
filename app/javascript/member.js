@@ -27,7 +27,7 @@ function member() {
       const html = `
       <li class="content-list-item">
         ${item.name}
-        <i class="member-del-btn fa-solid fa-xmark", data-member_id= "${item.id}", data-lounge_id = "${loungeId}" ></i>
+        <i class="member-del-btn del-btn fa-solid fa-xmark", data-member_id= "${item.id}", data-lounge_id = "${loungeId}" ></i>
       </li>
       `;
       list.insertAdjacentHTML("beforeend", html);
@@ -41,12 +41,6 @@ function member() {
     memberDelBtns.forEach(function (memberDelBtn) {
       if (memberDelBtn.dataset.listenerAdded !== 'true') {
         memberDelBtn.dataset.listenerAdded = 'true'
-        memberDelBtn.addEventListener('mouseover', function () {
-          this.setAttribute("style", "color: gold;");
-        });
-        memberDelBtn.addEventListener('mouseout', function () {
-          this.removeAttribute("style", "color: gray;");
-        });
         memberDelBtn.addEventListener('click', function () {
           const loungeId = memberDelBtn.getAttribute("data-lounge_id");
           const memberId = memberDelBtn.getAttribute("data-member_id");
