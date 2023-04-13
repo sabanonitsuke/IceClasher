@@ -131,6 +131,14 @@
   color: gold;
 }
 
+.timer-btn:active {
+  color: aquamarine;
+}
+
+#play-btn.active {
+  color: aquamarine;
+}
+
 /* サイド */
 .side-content {
   border: 1px solid green;

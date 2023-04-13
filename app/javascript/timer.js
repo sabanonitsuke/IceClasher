@@ -20,29 +20,7 @@ function timer() {
   updateTopicItems();
   updatePeople();
 
-  function updateTimer() {
-    timeLeft -= 1;
-    timerElement.textContent = timeLeft;
 
-    if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      const audio = document.getElementById('pi-sound');
-      audio.play();
-    }
-  };
-
-
-  playBtn.addEventListener('click', function () {
-    const audio = document.getElementById('pi-sound');
-    audio.play();
-    playBtn.classList.toggle('active');
-
-    if (playBtn.classList.contains('active')) {
-      timerInterval = setInterval(updateTimer, 1000);
-    } else {
-      clearInterval(timerInterval);
-    }
-  });
 
 
   // 実行処理
@@ -118,6 +96,18 @@ function timer() {
     timerElement.textContent = timeLeftDef;
   };
 
+  function updateTimer() {
+    timeLeft -= 1;
+    timerElement.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      playBtn.classList.toggle('active');
+      const audio = document.getElementById('pi-sound');
+      audio.play();
+    }
+  };
+
   // ボタンイベント
   memberSubmit.addEventListener('click', function (e) {
     e.preventDefault();
@@ -190,10 +180,17 @@ function timer() {
     reset();
   });
 
-  // playBtn.addEventListener('click', function () {
-  //   const audio = document.getElementById('pi-sound');
-  //   audio.play();
-  // });
+  playBtn.addEventListener('click', function () {
+    const audio = document.getElementById('pi-sound');
+    audio.play();
+    playBtn.classList.toggle('active');
+
+    if (playBtn.classList.contains('active')) {
+      timerInterval = setInterval(updateTimer, 1000);
+    } else {
+      clearInterval(timerInterval);
+    }
+  });
 
   nextBtn.addEventListener('click', function () {
     if (members.length === 0) {
