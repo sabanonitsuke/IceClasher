@@ -1,7 +1,7 @@
 function timer() {
-
-  const nextBtn = document.getElementById('next-btn');
   const resetBtn = document.getElementById('reset-btn');
+  const playBtn = document.getElementById('play-btn');
+  const nextBtn = document.getElementById('next-btn');
   const memberDisplay = document.getElementById('member-display');
   const topicDisplay = document.getElementById('topic-display');
   const people = document.getElementById('people');
@@ -9,12 +9,21 @@ function timer() {
   const topicSubmit = document.getElementById('topic-submit');
   const loungeId = document.getElementById('lounge-main').dataset.lounge_id;
 
+  let timerElement = document.getElementById("seconds");
+  let timeLeft = parseInt(timerElement.dataset.time);
+  const timeLeftDef = timeLeft
+  let timerInterval;
+
   updateMembers();
   updateTopics();
   updateMemberItems();
   updateTopicItems();
   updatePeople();
+  if (members.length >= 1) {
+    next();
+  }
 
+  // 実行処理
   function updateMembers() {
     members = Array.from(document.querySelectorAll('#member-list li')).map(li => li.textContent);
     usedMembers = [];
@@ -84,8 +93,57 @@ function timer() {
     updateMembers();
     updateMemberItems();
     updatePeople();
+    timerElement.textContent = timeLeftDef;
+    timeLeft = timeLeftDef
+    playBtn.classList.remove('active');
+    clearInterval(timerInterval);
+    next();
   };
 
+  function updateTimer() {
+    timeLeft -= 1;
+    timerElement.textContent = timeLeft;
+    if (timeLeft <= 0) {
+      next(true);
+    }
+  };
+
+  function next(soundPlay) {
+    if (members.length === 0) {
+      memberDisplay.textContent = '終了＼(^o^)／';
+      topicDisplay.textContent = '終了＼(^o^)／';
+      people.innerHTML = "0"
+      clearInterval(timerInterval);
+      timerElement.textContent = 0;
+      playBtn.classList.remove('active');
+      if (soundPlay === true) {
+        playThe('kankan-sound');
+      }
+      return;
+    }
+    updatePeople();
+    const randomIndex = Math.floor(Math.random() * members.length);
+    const selectedName = members[randomIndex];
+    memberDisplay.textContent = selectedName;
+    usedMembers.push(selectedName);
+    members.splice(randomIndex, 1);
+
+    const randomIdex2 = Math.floor(Math.random() * topics.length);
+    const selectedName2 = topics[randomIdex2];
+    topicDisplay.textContent = selectedName2;
+    timeLeft = timeLeftDef
+    timerElement.textContent = timeLeft;
+    if (soundPlay === true) {
+      playThe('kan-sound');
+    }
+  }
+
+  function playThe(audioId) {
+    const audio = document.getElementById(audioId);
+    audio.play();
+  }
+
+  // ボタンイベント
   memberSubmit.addEventListener('click', function (e) {
     e.preventDefault();
     const memberForm = document.getElementById('member-form');
@@ -157,24 +215,20 @@ function timer() {
     reset();
   });
 
-  nextBtn.addEventListener('click', function () {
-    if (members.length === 0) {
-      memberDisplay.textContent = '終了＼(^o^)／';
-      topicDisplay.textContent = '終了＼(^o^)／';
-      people.innerHTML = "0"
-      return;
+  playBtn.addEventListener('click', function () {
+    if (playBtn.classList.contains('active')) {
+      playBtn.classList.remove('active');
+      playThe('pipi-sound');
+      clearInterval(timerInterval);
+    } else {
+      playBtn.classList.add('active');
+      playThe('pi-sound');
+      timerInterval = setInterval(updateTimer, 1000);
     }
-    updatePeople();
-    const randomIndex = Math.floor(Math.random() * members.length);
-    const selectedName = members[randomIndex];
-    memberDisplay.textContent = selectedName;
+  });
 
-    usedMembers.push(selectedName);
-    members.splice(randomIndex, 1);
-
-    const randomIdex2 = Math.floor(Math.random() * topics.length);
-    const selectedName2 = topics[randomIdex2];
-    topicDisplay.textContent = selectedName2;
+  nextBtn.addEventListener('click', function () {
+    next(true);
   });
 
 };

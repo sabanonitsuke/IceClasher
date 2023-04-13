@@ -1,4 +1,10 @@
 <%= render "shared/header" %>
+
+<audio id="pi-sound" src= "<%= asset_path 'whistle1.mp3' %>" preload="auto"></audio>
+<audio id="pipi-sound" src= "<%= asset_path 'whistle2.mp3' %>" preload="auto"></audio>
+<audio id="kan-sound" src= "<%= asset_path 'kong1.mp3' %>" preload="auto"></audio>
+<audio id="kankan-sound" src= "<%= asset_path 'kong2.mp3' %>" preload="auto"></audio>
+
 <main>
   
   <div class="main-content" id = "lounge-main" data-lounge_id = <%= @lounge.id %> >
@@ -74,7 +80,7 @@
             <div class="countdown">
               残り時間
               <div class="count-wrap">
-                <div class="remaining" id="minutes"> <%= @lounge.time_limit %> </div>
+                <div class="remaining" id="seconds" data-time = <%= @lounge.time_limit %> > <%= @lounge.time_limit %> </div>
                 秒
               </div>
             </div>
