@@ -112,6 +112,26 @@ function timer() {
   // const audio = document.getElementById('pi-sound');
   // audio.play();
 
+  function next() {
+    if (members.length === 0) {
+      memberDisplay.textContent = '終了＼(^o^)／';
+      topicDisplay.textContent = '終了＼(^o^)／';
+      people.innerHTML = "0"
+      return;
+    }
+    updatePeople();
+    const randomIndex = Math.floor(Math.random() * members.length);
+    const selectedName = members[randomIndex];
+    memberDisplay.textContent = selectedName;
+
+    usedMembers.push(selectedName);
+    members.splice(randomIndex, 1);
+
+    const randomIdex2 = Math.floor(Math.random() * topics.length);
+    const selectedName2 = topics[randomIdex2];
+    topicDisplay.textContent = selectedName2;
+  }
+
   // ボタンイベント
   memberSubmit.addEventListener('click', function (e) {
     e.preventDefault();
@@ -205,23 +225,7 @@ function timer() {
   });
 
   nextBtn.addEventListener('click', function () {
-    if (members.length === 0) {
-      memberDisplay.textContent = '終了＼(^o^)／';
-      topicDisplay.textContent = '終了＼(^o^)／';
-      people.innerHTML = "0"
-      return;
-    }
-    updatePeople();
-    const randomIndex = Math.floor(Math.random() * members.length);
-    const selectedName = members[randomIndex];
-    memberDisplay.textContent = selectedName;
-
-    usedMembers.push(selectedName);
-    members.splice(randomIndex, 1);
-
-    const randomIdex2 = Math.floor(Math.random() * topics.length);
-    const selectedName2 = topics[randomIdex2];
-    topicDisplay.textContent = selectedName2;
+    next();
   });
 
 };
