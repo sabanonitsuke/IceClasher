@@ -115,8 +115,7 @@ function timer() {
       timerElement.textContent = 0;
       playBtn.classList.remove('active');
       if (soundPlay === true) {
-        const audio = document.getElementById('kankan-sound');
-        audio.play();
+        playThe('kankan-sound');
       }
       return;
     }
@@ -133,9 +132,13 @@ function timer() {
     timeLeft = timeLeftDef
     timerElement.textContent = timeLeft;
     if (soundPlay === true) {
-      const audio = document.getElementById('kan-sound');
-      audio.play();
+      playThe('kan-sound');
     }
+  }
+
+  function playThe(audioId) {
+    const audio = document.getElementById(audioId);
+    audio.play();
   }
 
   // ボタンイベント
@@ -213,13 +216,11 @@ function timer() {
   playBtn.addEventListener('click', function () {
     if (playBtn.classList.contains('active')) {
       playBtn.classList.remove('active');
-      const audio = document.getElementById('pipi-sound');
-      audio.play();
+      playThe('pipi-sound');
       clearInterval(timerInterval);
     } else {
       playBtn.classList.add('active');
-      const audio = document.getElementById('pi-sound');
-      audio.play();
+      playThe('pi-sound');
       timerInterval = setInterval(updateTimer, 1000);
     }
   });
