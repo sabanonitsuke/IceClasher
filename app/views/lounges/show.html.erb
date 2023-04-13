@@ -5,10 +5,8 @@
 <audio id="kan-sound" src= "<%= asset_path 'kong1.mp3' %>" preload="auto"></audio>
 <audio id="kankan-sound" src= "<%= asset_path 'kong2.mp3' %>" preload="auto"></audio>
 
-<main>
+<main class="main-content" id = "lounge-main" data-lounge_id = <%= @lounge.id %>>
   
-  <div class="main-content" id = "lounge-main" data-lounge_id = <%= @lounge.id %> >
-
     <%# ラウンジ概要 %>
     <h1 class="lounge-title">
       <span class="lounge-title_name">
@@ -27,17 +25,15 @@
 
       <%# メンバーエリア %>
       <div class="side-content">
-        <div class="saved-content">
-          <h2 class="content-list-title">メンバー一覧</h2>
-          <ul class="content-list scroll-item" id="member-list">
-            <% @members.each do |member| %>
-              <li class="content-list-item">
-                <%= member.name %>
-                <i class="member-del-btn del-btn fa-solid fa-xmark", data-member_id = <%= member.id %> ></i>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+        <h2 class="content-list-title">メンバー一覧</h2>
+        <ul class="content-list scroll-item" id="member-list">
+          <% @members.each do |member| %>
+            <li class="content-list-item">
+              <%= member.name %>
+              <i class="member-del-btn del-btn fa-solid fa-xmark", data-member_id = <%= member.id %> ></i>
+            </li>
+          <% end %>
+        </ul>
         <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", local: true do |f| %>
           <div class="d-flex">
             <%= f.text_field :name, class:"side-content-text", id: "member-text", placeholder:"メンバーを入力" %>
@@ -104,17 +100,15 @@
 
       <%# トピックエリア %>
       <div class="side-content">
-        <div class="saved-content">
-          <h2 class="content-list-title">トピック一覧</h2>
-          <ul class="content-list scroll-item" id="topic-list">
-            <% @topics.each do |topic| %>
-              <li class="content-list-item">
-                <%= topic.name %>
-                <i class="topic-del-btn del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> ></i>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+        <h2 class="content-list-title">トピック一覧</h2>
+        <ul class="content-list scroll-item" id="topic-list">
+          <% @topics.each do |topic| %>
+            <li class="content-list-item">
+              <%= topic.name %>
+              <i class="topic-del-btn del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> ></i>
+            </li>
+          <% end %>
+        </ul>
 
         <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", local: true do |f| %>
           <div class="d-flex">
@@ -126,6 +120,5 @@
 
     </div>
     
-  </div>
 
 </main>
