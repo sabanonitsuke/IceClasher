@@ -124,7 +124,6 @@ function timer() {
     const randomIndex = Math.floor(Math.random() * members.length);
     const selectedName = members[randomIndex];
     memberDisplay.textContent = selectedName;
-
     usedMembers.push(selectedName);
     members.splice(randomIndex, 1);
 
@@ -216,17 +215,12 @@ function timer() {
       playBtn.classList.remove('active');
       const audio = document.getElementById('pipi-sound');
       audio.play();
+      clearInterval(timerInterval);
     } else {
       playBtn.classList.add('active');
       const audio = document.getElementById('pi-sound');
       audio.play();
-    }
-
-
-    if (playBtn.classList.contains('active')) {
       timerInterval = setInterval(updateTimer, 1000);
-    } else {
-      clearInterval(timerInterval);
     }
   });
 
