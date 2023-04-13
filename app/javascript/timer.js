@@ -101,12 +101,16 @@ function timer() {
     timerElement.textContent = timeLeft;
 
     if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      playBtn.classList.remove('active');
-      const audio = document.getElementById('pi-sound');
+      const audio = document.getElementById('kan-sound');
       audio.play();
+      timeLeft = timeLeftDef
     }
   };
+  // 全員終わったときの処理
+  // clearInterval(timerInterval);
+  // playBtn.classList.remove('active');
+  // const audio = document.getElementById('pi-sound');
+  // audio.play();
 
   // ボタンイベント
   memberSubmit.addEventListener('click', function (e) {
