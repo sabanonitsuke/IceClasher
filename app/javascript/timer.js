@@ -181,9 +181,17 @@ function timer() {
   });
 
   playBtn.addEventListener('click', function () {
-    const audio = document.getElementById('pi-sound');
-    audio.play();
-    playBtn.classList.toggle('active');
+
+    if (playBtn.classList.contains('active')) {
+      playBtn.classList.remove('active');
+      const audio = document.getElementById('pipi-sound');
+      audio.play();
+    } else {
+      playBtn.classList.add('active');
+      const audio = document.getElementById('pi-sound');
+      audio.play();
+    }
+
 
     if (playBtn.classList.contains('active')) {
       timerInterval = setInterval(updateTimer, 1000);
