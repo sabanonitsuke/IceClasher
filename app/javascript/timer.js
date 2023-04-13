@@ -120,6 +120,7 @@ function timer() {
       topicDisplay.textContent = '終了＼(^o^)／';
       people.innerHTML = "0"
       clearInterval(timerInterval);
+      timerElement.textContent = 0;
       playBtn.classList.remove('active');
       const audio = document.getElementById('kankan-sound');
       audio.play();
