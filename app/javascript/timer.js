@@ -19,7 +19,9 @@ function timer() {
   updateMemberItems();
   updateTopicItems();
   updatePeople();
-  next();
+  if (members.length >= 1) {
+    next();
+  }
 
   // 実行処理
   function updateMembers() {
