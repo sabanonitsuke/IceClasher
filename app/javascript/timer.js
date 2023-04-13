@@ -20,9 +20,6 @@ function timer() {
   updateTopicItems();
   updatePeople();
 
-
-
-
   // 実行処理
   function updateMembers() {
     members = Array.from(document.querySelectorAll('#member-list li')).map(li => li.textContent);
@@ -94,6 +91,9 @@ function timer() {
     updateMemberItems();
     updatePeople();
     timerElement.textContent = timeLeftDef;
+    timeLeft = timeLeftDef
+    playBtn.classList.remove('active');
+    clearInterval(timerInterval);
   };
 
   function updateTimer() {
@@ -102,7 +102,7 @@ function timer() {
 
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
-      playBtn.classList.toggle('active');
+      playBtn.classList.remove('active');
       const audio = document.getElementById('pi-sound');
       audio.play();
     }
