@@ -8,8 +8,8 @@ function timer() {
   const memberSubmit = document.getElementById('member-submit');
   const topicSubmit = document.getElementById('topic-submit');
   const loungeId = document.getElementById('lounge-main').dataset.lounge_id;
-
-  let timerElement = document.getElementById("seconds");
+  const doubleLine = document.getElementById('double-line');
+  const timerElement = document.getElementById("seconds");
   let timeLeft = parseInt(timerElement.dataset.time);
   const timeLeftDef = timeLeft
   let timerInterval;
@@ -97,6 +97,11 @@ function timer() {
     timeLeft = timeLeftDef
     playBtn.classList.remove('active');
     clearInterval(timerInterval);
+    doubleLine.classList.remove('finish');
+    people.classList.remove('finish');
+    timerElement.classList.remove('finish');
+    memberDisplay.classList.remove('finish');
+    topicDisplay.classList.remove('finish');
     next();
   };
 
@@ -116,6 +121,11 @@ function timer() {
       clearInterval(timerInterval);
       timerElement.textContent = 0;
       playBtn.classList.remove('active');
+      memberDisplay.classList.add('finish');
+      topicDisplay.classList.add('finish');
+      doubleLine.classList.add('finish');
+      people.classList.add('finish');
+      timerElement.classList.add('finish');
       if (soundPlay === true) {
         playThe('kankan-sound');
       }
