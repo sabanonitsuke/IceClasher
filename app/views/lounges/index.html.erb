@@ -12,18 +12,33 @@
     <p class="message">あなたが作成したラウンジ一覧</p>
     <ul class="lounge-list scroll-item">
       <% @lounges.each do |lounge| %>
-        <%= link_to lounge_path(lounge.id) , style: "text-decoration: none" do %>
-          <li class="lounge-item">
-            <div class="lounge-item-main">
+        <%= link_to lounge_path(lounge.id), class: "no-decoration" do %>
+          <li class="lounge-item-wrap">
+            <div class="lounge-item">
               <div class="lounge-item-main_name">
                 <%= lounge.name %>
               </div>
             </div>
-            <ul class="lounge-item-sidebar">
-              <%= link_to "ラウンジへのリンクをコピーする", "/" %>
-              <%= link_to "ラウンジを編集する", edit_lounge_path(lounge.id) %>
-              <%= link_to "ラウンジを削除する", lounge_path(lounge.id), method: :delete %>
-            </ul>
+              <div class="lounge-item-sidebar">
+                <div class="sidebar-icon-wrap">
+                  <%= link_to(root_path, class: 'no-decoration') do %>
+                    <i class="sidebar-icon fa-solid fa-copy"></i><br>
+                    copy url
+                  <% end %>
+                </div>
+                <div class="sidebar-icon-wrap">
+                  <%= link_to(edit_lounge_path(lounge.id), class: 'no-decoration') do %>
+                    <i class="sidebar-icon fa-solid fa-pen-to-square"></i><br>
+                    edit
+                  <% end %>
+                </div>
+                <div class="sidebar-icon-wrap">
+                  <%= link_to(lounge_path(lounge.id), method: :delete, class: 'no-decoration') do %>
+                    <i class="sidebar-icon fa-solid fa-trash"></i><br>
+                    delete
+                  <% end %>
+                </div>
+              </div>
           </li>
         <% end %>
       <% end %>
