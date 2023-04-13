@@ -1,4 +1,7 @@
 <%= render "shared/header" %>
+
+<audio id="pi-sound" src= "<%= asset_path 'whistle1.mp3' %>" preload="auto"></audio>
+
 <main>
   
   <div class="main-content" id = "lounge-main" data-lounge_id = <%= @lounge.id %> >
@@ -123,8 +126,3 @@
   </div>
 
 </main>
-
-<audio id="pi" src="sounds/警官のホイッスル1.mp3"></audio>
-<audio id="pipi" src="sounds/警官のホイッスル2.mp3"></audio>
-<audio id="kan" src="sounds/試合開始のゴング.mp3"></audio>
-<audio id="kankan" src="sounds/試合終了のゴング.mp3"></audio>

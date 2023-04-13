@@ -1,7 +1,7 @@
 function timer() {
-
-  const nextBtn = document.getElementById('next-btn');
   const resetBtn = document.getElementById('reset-btn');
+  const playBtn = document.getElementById('play-btn');
+  const nextBtn = document.getElementById('next-btn');
   const memberDisplay = document.getElementById('member-display');
   const topicDisplay = document.getElementById('topic-display');
   const people = document.getElementById('people');
@@ -15,6 +15,7 @@ function timer() {
   updateTopicItems();
   updatePeople();
 
+  // 実行処理
   function updateMembers() {
     members = Array.from(document.querySelectorAll('#member-list li')).map(li => li.textContent);
     usedMembers = [];
@@ -86,6 +87,7 @@ function timer() {
     updatePeople();
   };
 
+  // ボタンイベント
   memberSubmit.addEventListener('click', function (e) {
     e.preventDefault();
     const memberForm = document.getElementById('member-form');
@@ -155,6 +157,11 @@ function timer() {
 
   resetBtn.addEventListener('click', function () {
     reset();
+  });
+
+  playBtn.addEventListener('click', function () {
+    const audio = document.getElementById('pi-sound');
+    audio.play();
   });
 
   nextBtn.addEventListener('click', function () {
