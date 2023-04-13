@@ -19,6 +19,7 @@ function timer() {
   updateMemberItems();
   updateTopicItems();
   updatePeople();
+  next();
 
   // 実行処理
   function updateMembers() {
@@ -94,6 +95,7 @@ function timer() {
     timeLeft = timeLeftDef
     playBtn.classList.remove('active');
     clearInterval(timerInterval);
+    next();
   };
 
   function updateTimer() {
@@ -101,22 +103,26 @@ function timer() {
     timerElement.textContent = timeLeft;
 
     if (timeLeft <= 0) {
+
+      timeLeft = timeLeftDef
+      if (members.length === 0) {
+        next();
+      }
       const audio = document.getElementById('kan-sound');
       audio.play();
-      timeLeft = timeLeftDef
+      next();
     }
   };
-  // 全員終わったときの処理
-  // clearInterval(timerInterval);
-  // playBtn.classList.remove('active');
-  // const audio = document.getElementById('pi-sound');
-  // audio.play();
 
   function next() {
     if (members.length === 0) {
       memberDisplay.textContent = '終了＼(^o^)／';
       topicDisplay.textContent = '終了＼(^o^)／';
       people.innerHTML = "0"
+      clearInterval(timerInterval);
+      playBtn.classList.remove('active');
+      const audio = document.getElementById('kankan-sound');
+      audio.play();
       return;
     }
     updatePeople();
