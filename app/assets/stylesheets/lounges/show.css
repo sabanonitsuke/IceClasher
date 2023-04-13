@@ -138,7 +138,8 @@
 }
 
 .content-list {
-  border: 1px solid black;
+  border: #A5D2DA 1px solid;
+  border-radius: 10px;
   margin: 0 auto 10px;
   height: 70%;
   width: 70%;
@@ -147,7 +148,8 @@
 }
 
 .content-list li {
-  background-color: white;
+  background-color: #FFFFFF;
+  border-radius: 10px;
   margin: 5px;
   padding: 5px 10px;
   display: flex;
