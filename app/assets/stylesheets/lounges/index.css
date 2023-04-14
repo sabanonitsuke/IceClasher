@@ -43,6 +43,10 @@
   text-align: center;
 }
 
+.sidebar-icon-wrap:hover {
+  color: gold;
+}
+
 .sidebar-icon {
   font-size: 50px;
 
