@@ -5,10 +5,8 @@
 <audio id="kan-sound" src= "<%= asset_path 'kong1.mp3' %>" preload="auto"></audio>
 <audio id="kankan-sound" src= "<%= asset_path 'kong2.mp3' %>" preload="auto"></audio>
 
-<main>
+<main class="main-content" id = "lounge-main" data-lounge_id = <%= @lounge.id %>>
   
-  <div class="main-content" id = "lounge-main" data-lounge_id = <%= @lounge.id %> >
-
     <%# ラウンジ概要 %>
     <h1 class="lounge-title">
       <span class="lounge-title_name">
@@ -27,17 +25,15 @@
 
       <%# メンバーエリア %>
       <div class="side-content">
-        <div class="saved-content">
-          <h2 class="content-list-title">メンバー一覧</h2>
-          <ul class="content-list scroll-item" id="member-list">
-            <% @members.each do |member| %>
-              <li class="content-list-item">
-                <%= member.name %>
-                <i class="member-del-btn del-btn fa-solid fa-xmark", data-member_id = <%= member.id %> ></i>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+        <h2 class="content-list-title">メンバー一覧</h2>
+        <ul class="content-list scroll-item" id="member-list">
+          <% @members.each do |member| %>
+            <li class="content-list-item">
+              <%= member.name %>
+              <i class="member-del-btn del-btn fa-solid fa-xmark", data-member_id = <%= member.id %> ></i>
+            </li>
+          <% end %>
+        </ul>
         <%= form_with url: lounge_members_path(@lounge.id), method: :post, class:"side-content-form", id: "member-form", local: true do |f| %>
           <div class="d-flex">
             <%= f.text_field :name, class:"side-content-text", id: "member-text", placeholder:"メンバーを入力" %>
@@ -52,7 +48,7 @@
         <div class="random-displays">
           <div class="displays">
             <div class="display-title">
-              今話す人
+              <i class="display-icon fa-solid fa-user"></i> 今話す人
             </div>
             <div id="member-display" class="display-content">
               メンバーをここに表示
@@ -60,7 +56,7 @@
           </div>
           <div class="displays">
             <div class="display-title">
-              話題
+              <i class="display-icon fa-solid fa-message"></i> 話題
             </div>
             <div id="topic-display" class="display-content">
               トピックをここに表示
@@ -69,7 +65,7 @@
         </div>
         <%# タイマー %>
         <div class="timer-wrap">
-          <div class="timer">
+          <div class="timer" id="double-line">
             <div class="countdown">
               残り人数
               <div class="count-wrap">
@@ -87,7 +83,7 @@
           </div>
         </div>
 
-        <%# ボタン機能はここにまとめる %>
+        <%# ボタン %>
         <div class="timer-btns">
           <div class="timer-btn">
             <i id="reset-btn" class="fa-solid fa-rotate-left"></i>
@@ -104,17 +100,15 @@
 
       <%# トピックエリア %>
       <div class="side-content">
-        <div class="saved-content">
-          <h2 class="content-list-title">トピック一覧</h2>
-          <ul class="content-list scroll-item" id="topic-list">
-            <% @topics.each do |topic| %>
-              <li class="content-list-item">
-                <%= topic.name %>
-                <i class="topic-del-btn del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> ></i>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+        <h2 class="content-list-title">トピック一覧</h2>
+        <ul class="content-list scroll-item" id="topic-list">
+          <% @topics.each do |topic| %>
+            <li class="content-list-item">
+              <%= topic.name %>
+              <i class="topic-del-btn del-btn fa-solid fa-xmark", data-topic_id = <%= topic.id %> ></i>
+            </li>
+          <% end %>
+        </ul>
 
         <%= form_with url: lounge_topics_path(@lounge.id), method: :post, class:"side-content-form", id: "topic-form", local: true do |f| %>
           <div class="d-flex">
@@ -126,6 +120,5 @@
 
     </div>
     
-  </div>
 
 </main>

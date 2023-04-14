@@ -41,6 +41,8 @@ class LoungesController < ApplicationController
   end
 
   def destroy
+    @lounge.topics.destroy_all
+    @lounge.members.destroy_all
     if @lounge.destroy
       redirect_to root_path
     else

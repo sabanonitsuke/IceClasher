@@ -12,6 +12,10 @@
   text-decoration: none;
 }
 
+.clounge-btn:hover {
+  border: 3px solid gold;
+}
+
 .clounge-btn-text {
   color: #fff;
   display: block;
