@@ -19,26 +19,26 @@
                 <%= lounge.name %>
               </div>
             </div>
-              <div class="lounge-item-sidebar">
-                <div class="sidebar-icon-wrap">
-                  <%= link_to(root_path, class: 'no-decoration') do %>
-                    <i class="sidebar-icon fa-solid fa-copy"></i><br>
-                    copy url
-                  <% end %>
-                </div>
-                <div class="sidebar-icon-wrap">
-                  <%= link_to(edit_lounge_path(lounge.id), class: 'no-decoration') do %>
-                    <i class="sidebar-icon fa-solid fa-pen-to-square"></i><br>
-                    edit
-                  <% end %>
-                </div>
-                <div class="sidebar-icon-wrap">
-                  <%= link_to(lounge_path(lounge.id), method: :delete, class: 'no-decoration') do %>
-                    <i class="sidebar-icon fa-solid fa-trash"></i><br>
-                    delete
-                  <% end %>
-                </div>
+            <div class="lounge-item-sidebar">
+              <div class="sidebar-icon-wrap">
+                <%= link_to(root_path, class: 'no-decoration') do %>
+                  <i class="sidebar-icon fa-solid fa-copy"></i><br>
+                  copy url
+                <% end %>
               </div>
+              <div class="sidebar-icon-wrap">
+                <%= link_to(edit_lounge_path(lounge.id), class: 'no-decoration') do %>
+                  <i class="sidebar-icon fa-solid fa-pen-to-square"></i><br>
+                  edit
+                <% end %>
+              </div>
+              <div class="sidebar-icon-wrap">
+                <%= link_to(lounge_path(lounge.id), method: :delete, class: 'no-decoration') do %>
+                  <i class="sidebar-icon fa-solid fa-trash"></i><br>
+                  delete
+                <% end %>
+              </div>
+            </div>
           </li>
         <% end %>
       <% end %>

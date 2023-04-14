@@ -28,6 +28,10 @@
   justify-content: space-between;
 }
 
+.lounge-item:hover {
+  color: #FF9AA2;
+}
+
 .lounge-item-main_name {
   padding: 10px 20px;
   font-size: 30px;
