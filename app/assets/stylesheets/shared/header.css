@@ -18,6 +18,10 @@
   font-weight: bold;
 }
 
+.header-logo:hover {
+  color: gold;
+}
+
 .nav-buttons {
   display: flex;
   align-items: center;
@@ -32,4 +36,8 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+}
+
+.nav-btn:hover {
+  color: gold;
 }
