@@ -60,3 +60,13 @@
   text-decoration: none !important;
   color: inherit !important;
 }
+
+.copied-message {
+  position: absolute;
+  background-color: #FF9AA2;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  white-space: nowrap;
+}

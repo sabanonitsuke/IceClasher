@@ -20,11 +20,9 @@
               </div>
             </div>
             <div class="lounge-item-sidebar">
-              <div class="sidebar-icon-wrap">
-                <%= link_to(root_path, class: 'no-decoration') do %>
+              <div class="sidebar-icon-wrap copy-url" data-url="<%= request.protocol %><%= request.host_with_port %><%= lounge_path(lounge.id) %>" >
                   <i class="sidebar-icon fa-solid fa-copy"></i><br>
                   copy url
-                <% end %>
               </div>
               <div class="sidebar-icon-wrap">
                 <%= link_to(edit_lounge_path(lounge.id), class: 'no-decoration') do %>
