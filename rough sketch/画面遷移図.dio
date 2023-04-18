@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="PcQdKORbiFSHubAE3-JY" name="ページ1">
-        <mxGraphModel dx="1290" dy="881" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="642" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -51,14 +51,8 @@
                 <mxCell id="15" value="ラウンジ作成" style="html=1;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.form;" parent="1" vertex="1">
                     <mxGeometry x="403" y="400" width="120" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="" style="edgeStyle=none;html=1;" parent="1" source="19" target="20" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="19" value="ラウンジ" style="html=1;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.chat;" parent="1" vertex="1">
+                <mxCell id="19" value="個別のラウンジ" style="html=1;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.chat;" parent="1" vertex="1">
                     <mxGeometry x="403" y="550" width="120" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="20" value="ラウンジ設定" style="html=1;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.form;" parent="1" vertex="1">
-                    <mxGeometry x="403" y="780" width="120" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="ログイン" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="349" y="80" width="100" height="60" as="geometry"/>
@@ -186,9 +180,6 @@
                         <mxPoint x="219" y="670" as="sourcePoint"/>
                         <mxPoint x="269" y="620" as="targetPoint"/>
                     </mxGeometry>
-                </mxCell>
-                <mxCell id="70" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;" vertex="1" parent="1">
-                    <mxGeometry x="403" y="780" width="117" height="70" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
