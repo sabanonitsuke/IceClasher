@@ -64,7 +64,7 @@ https://docs.google.com/spreadsheets/d/11GMIhBZN6Lb6iBwJ4Pvk_-jYeKtb70AaL-e4hIC7
 * アイスブレイク終了時の演出を強化する(紙吹雪を散らす 等)
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/feede7042cea04692ef3097b021376e3.png)](https://gyazo.com/feede7042cea04692ef3097b021376e3)
+[![Image from Gyazo](https://i.gyazo.com/6e2fb80fd267c766615b9a391ae7a41d.png)](https://gyazo.com/6e2fb80fd267c766615b9a391ae7a41d)
 
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/bbb804c6442c00126b41a5bf42841591.png)](https://gyazo.com/bbb804c6442c00126b41a5bf42841591)
