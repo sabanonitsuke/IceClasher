@@ -22,10 +22,24 @@
               </div>
               <div class="lounge-item-main_contents">
                 <div class="lounge-item-main_content">
-                  主なメンバー
+                  <ul>
+                    メンバー:
+                    <% lounge.members.each do |member| %>
+                      <li>
+                        ・<%= member.name %>
+                      </li>
+                    <% end %>
+                  </ul>
                 </div>
                 <div class="lounge-item-main_content">
-                  主なトピック
+                  <ul>
+                    トピック:
+                    <% lounge.topics.each do |topic| %>
+                      <li>
+                        ・<%= topic.name %>
+                      </li>
+                    <% end %>
+                  </ul>
                 </div>
               </div>
             </div>
