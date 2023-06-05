@@ -24,7 +24,13 @@
                 <div class="lounge-item-main_content">
                   <ul>
                     メンバー:
+                    <% n=0 %>
                     <% lounge.members.each do |member| %>
+                      <% n+= 1 %>
+                      <% if n>5 %>
+                        <div class="omitment">他計<%= lounge.members.length %>名</div>
+                        <% break %>
+                      <% end %>
                       <li>
                         ・<%= member.name %>
                       </li>

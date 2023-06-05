@@ -45,6 +45,11 @@
   width: 40%;
 }
 
+.omitment {
+  text-align: right;
+  margin-right: 30px;
+}
+
 .lounge-item-sidebar {
   margin: auto 0;
 }
