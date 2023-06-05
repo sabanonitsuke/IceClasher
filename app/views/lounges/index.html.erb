@@ -8,6 +8,8 @@
 
   <% if user_signed_in? && @lounges.empty? %>
     <p class="message">まずはラウンジを作成しましょう！</p>
+
+  <%# ラウンジ一覧表示 %>
   <% elsif user_signed_in? %>
     <p class="message">あなたが作成したラウンジ一覧</p>
     <ul class="lounge-list scroll-item">
@@ -17,6 +19,40 @@
             <div class="lounge-item">
               <div class="lounge-item-main_name">
                 <%= lounge.name %>
+              </div>
+              <div class="lounge-item-main_contents">
+                <div class="lounge-item-main_content">
+                  <ul>
+                    ★メンバー
+                    <% n=0 %>
+                    <% lounge.members.each do |member| %>
+                      <% n+= 1 %>
+                      <% if n>5 %>
+                        <div class="omitment">他計<%= lounge.members.length %>名</div>
+                        <% break %>
+                      <% end %>
+                      <li>
+                        ・<%= member.name %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+                <div class="lounge-item-main_content">
+                  <ul>
+                    ★トピック
+                    <% n=0 %>
+                    <% lounge.topics.each do |topic| %>
+                      <% n+= 1 %>
+                      <% if n>5 %>
+                        <div class="omitment">他計<%= lounge.topics.length %>件</div>
+                        <% break %>
+                      <% end %>
+                      <li>
+                        ・<%= topic.name %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="lounge-item-sidebar">
@@ -41,6 +77,7 @@
         <% end %>
       <% end %>
     </ul>
+
   <% else %>
     <p class="message">ログインをしたら、あなたが作成したラウンジ一覧がここに表示されます</p>
   <% end %>

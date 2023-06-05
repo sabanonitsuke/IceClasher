@@ -24,8 +24,6 @@
   color: gray;
   border-radius: 15px;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: space-between;
 }
 
 .lounge-item:hover {
@@ -35,6 +33,21 @@
 .lounge-item-main_name {
   padding: 10px 20px;
   font-size: 30px;
+}
+
+.lounge-item-main_contents {
+  display: flex;
+}
+
+.lounge-item-main_content {
+  padding: 10px 30px;
+  font-size: 20px;
+  width: 40%;
+}
+
+.omitment {
+  text-align: right;
+  margin-right: 30px;
 }
 
 .lounge-item-sidebar {
