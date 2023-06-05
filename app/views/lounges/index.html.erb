@@ -40,7 +40,13 @@
                 <div class="lounge-item-main_content">
                   <ul>
                     トピック:
+                    <% n=0 %>
                     <% lounge.topics.each do |topic| %>
+                      <% n+= 1 %>
+                      <% if n>5 %>
+                        <div class="omitment">他計<%= lounge.topics.length %>件</div>
+                        <% break %>
+                      <% end %>
                       <li>
                         ・<%= topic.name %>
                       </li>
