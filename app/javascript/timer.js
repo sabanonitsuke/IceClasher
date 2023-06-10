@@ -48,7 +48,7 @@ function timer() {
           XHR.onload = () => {
             if (XHR.status === 204) {
               memberDelBtn.parentElement.remove();
-              updateMembers();
+              reset();
             } else {
               alert(`Error ${XHR.status}: ${XHR.statusText}`);
             };
@@ -73,7 +73,7 @@ function timer() {
           XHR.onload = () => {
             if (XHR.status === 204) {
               topicDelBtn.parentElement.remove();
-              updateTopics();
+              reset();
             } else {
               alert(`Error ${XHR.status}: ${XHR.statusText}`);
             };
